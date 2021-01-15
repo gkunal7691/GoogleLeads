@@ -8,10 +8,7 @@ var passport = require('passport');
 
 const authRouter = require('./routes/core/auth');
 const usersRouter = require('./routes/core/users');
-const category = require('./routes/taskandearn/category')
-const subCategory = require('./routes/taskandearn/subCategory')
-const Task = require('./routes/taskandearn/task')
-const Professional = require('./routes/taskandearn/professionals')
+const businessSearch = require('./routes/business/business-search');
 
 const env = process.env.NODE_ENV = process.env.NODE_ENV || 'local';
 
@@ -23,47 +20,10 @@ const originsWhitelist = [
 
 originsWhitelist.push('http://localhost:4200');
 originsWhitelist.push('http://localhost:8000');
-originsWhitelist.push('https://taskandearn-dev.herokuapp.com');
-originsWhitelist.push('http://app.taskandearn.com');
-originsWhitelist.push('https://app.taskandearn.com');
-originsWhitelist.push('http://taskandearn.com');
-originsWhitelist.push('https://taskandearn.com');
-originsWhitelist.push('http://www.taskandearn.com');
-originsWhitelist.push('https://www.taskandearn.com');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use('/home', express.static('dist/taskandearn'));
-app.use('/login', express.static('dist/taskandearn'));
-app.use('/registration', express.static('dist/taskandearn'));
-
-
-
-
-app.use('/employee/edashboard', express.static('dist/taskandearn'));
-app.use('/joinaspro', express.static('dist/taskandearn'));
-app.use('/task', express.static('dist/taskandearn'));
-app.use('/hire-pro', express.static('dist/taskandearn'));
-app.use('/search-task', express.static('dist/taskandearn'));
-app.use('/subcategory/:categoryId', express.static('dist/taskandearn'));
-app.use('/professionals', express.static('dist/taskandearn'));
-app.use('/alltasks', express.static('dist/taskandearn'));
-app.use('/taskdetails/:taskId', express.static('dist/taskandearn'));
-app.use('/mytasks', express.static('dist/taskandearn'));
-app.use('/applied', express.static('dist/taskandearn'));
-app.use('/profile', express.static('dist/taskandearn'));
-app.use('/profile/:userId', express.static('dist/taskandearn'));
-app.use('/terms', express.static('dist/taskandearn'));
-app.use('/privacy', express.static('dist/taskandearn'));
-app.use('/aboutus', express.static('dist/taskandearn'));
-app.use('/requested', express.static('dist/taskandearn'));
-app.use('/profile-detail', express.static('dist/taskandearn'));
-app.use('/profile-detail/:proId', express.static('dist/taskandearn'));
-
-
-
-
 
 
 app.use(express.static('dist/taskandearn'));
@@ -82,36 +42,14 @@ app.use(cors({
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
-
 app.use('/api/auth', authRouter);
-
-
 app.use('/api/users', authRouter)
-// app.use('/api/organization', organizationRouter);
-// app.use('/api/userMeta', passport.authenticate('jwt', { session: false }), /*roleMiddleware,*/ userMetaRouter);
-// app.use('/api/orgMeta',   /*roleMiddleware,*/ orgMetaRouter);
-// app.use('/api/mail', mailRouter);
 
 /* softobotics */
 
 app.use('/api/user', usersRouter);
-app.use('/api/category', category);
-app.use('/api/subcategory', subCategory)
-app.use('/api/task', Task)
-app.use('/api/professionals', Professional)
+app.use('/api/business-search', businessSearch)
 
-// app.use('/api/task', passport.authenticate('jwt', { session: false }), taskRouter);
-// app.use('/api/comment', passport.authenticate('jwt', { session: false }), commentRouter);
-// app.use('/api/leave', passport.authenticate('jwt', { session: false }), Leave);
-// app.use('/api/holiday', passport.authenticate('jwt', { session: false }), Holiday);
-// app.use('/api/dayoff', passport.authenticate('jwt', { session: false }), Dayoff);
-// app.use('/api/todo', passport.authenticate('jwt', { session: false }), todoRouter);
-// app.use('/api/weekday', passport.authenticate('jwt', { session: false }), Weekday);
-// app.use('/api/userInfo', passport.authenticate('jwt', { session: false }), UserInfoRouter);
-// app.use('/api/payslip', passport.authenticate('jwt', { session: false }), PayslipRouter);
-// app.use('/api/registration', usersRouter)
-
-// error handler, don't remove next
 
 app.use(function (err, req, res, next) {
     let errorCode = '';

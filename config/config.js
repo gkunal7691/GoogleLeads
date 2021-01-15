@@ -45,24 +45,11 @@ config.production = {
 };
 
 config.local = {
-    // db: {
-    //     username: "root",
-    //     password: "",
-    //     database: "gauranrc_taskandearn",
-    //     host: "localhost",
-    //     dialect: "mysql",
-    //     migrationStorage: "json",
-    //     define: {
-    //         charset: 'utf8',
-    //         collate: 'utf8_general_ci',
-    //         timestamps: true
-    //     }
-    // },
     db: {
-        username: "gauranrc_tas",
-        password: "*9iRa$&B#;9s",
-        database: "gauranrc_taskandearn",
-        host: "162.215.241.152",
+        username: "root",
+        password: "",
+        database: "gauranrc_search",
+        host: "localhost",
         dialect: "mysql",
         migrationStorage: "json",
         define: {

@@ -1,25 +1,11 @@
 @import "./assets/template/css/open-iconic-bootstrap.min.css";
 @import "./assets/template/css/animate.css";
 @import "./assets/template/css/owl.carousel.min.css";
-@import "./assets/template/css/owl.carousel.min.css";
 @import "./assets/template/css/owl.theme.default.min.css";
-@import "./assets/template/css/magnific-popup.css";
-@import "./assets/template/css/aos.css";
+@import "./assets/template/css/magnific-popup.css";;
 @import "./assets/template/css/ionicons.min.css";
 @import "./assets/template/css/bootstrap-datepicker.css";
 @import "./assets/template/css/jquery.timepicker.css";
 @import "./assets/template/css/flaticon.css";
 @import "./assets/template/css/icomoon.css";
 @import "./assets/template/css/style.css";
-.bgr-image {
-    padding: 20px 0 20px 0;
-    background-size: cover;
-    background-image: linear-gradient(90deg, #38a6ff, #03c1a1);
-}
-.owl-carousel .owl-nav .owl-prev, .owl-carousel .owl-nav .owl-next {
-    font-size: 40px !important;
-    color: #fff !important;
-}
-.owl-theme .owl-nav [class*=owl-]:hover{
-    background-color: black;
-}
