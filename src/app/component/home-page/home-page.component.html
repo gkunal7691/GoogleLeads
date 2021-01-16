@@ -1,26 +1,25 @@
 <div>
     <div class="home-sereen">
-        <div class="image-overlay"></div>
-        <div class="business-form">
+        <div class="image-overlay"></div> 
+        <div class="business-form hover">
             <div class="search-form p-5" role="tabpanel" aria-labelledby="v-pills-performance-tab">
                 <form action="#" class="business-search">
                     <div class="row">
                         <!-- Input Field-->
-                        <div>
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <div class="form-field">
-                                    
+                                <div class="form-field p-1">                                    
                                     <input type="text" name="location" class="form-control" placeholder="eg. Indranagar"
                                         [formControl]="searchBusinessForm.controls['location']">
-                                        <label for="location">Enter Loacation</label>
+                                        <!-- <label for="location">Enter Loacation</label> -->
                                 </div>
                             </div>
                         </div>
 
                         <!-- Category Field-->
-                        <div>
+                        <div class="col-md-2">
                             <div class="form-group">
-                                <div class="form-field">
+                                <div class="form-field p-1">
                                     <div class="select-wrap">
                                         <!-- <label for="category">Select the Category</label> -->
                                         <select name="category" id="" class="form-control"
@@ -35,9 +34,9 @@
                             </div>
                         </div>
                         <!-- Radius Field -->
-                        <div>
+                        <div class="col-md-2">
                             <div class="form-group">
-                                <div class="form-field">
+                                <div class="form-field p-1">
                                     <div class="select-wrap">
                                         <!-- <label for="radius">Select the Radius</label> -->
                                         <select name="radius" id="" class="form-control"
@@ -52,11 +51,11 @@
                         </div>
 
                         <!-- Button -->
-                        <div>
+                        <div class="col-md-2">
                             <div class="form-group">
-                                <div class="form-field">
+                                <div class="form-field p-1">
                                     <button type="submit" [disabled]="!searchBusinessForm.valid"
-                                        class="form-control btn btn-dark"
+                                        class="form-control btn btn-primary"
                                         (click)="onSearchProCustomer()">Search</button>
                                 </div>
                             </div>

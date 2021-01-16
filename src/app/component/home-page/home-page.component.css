@@ -19,6 +19,10 @@
     position: absolute;
 }
 
+.form-group {
+  margin-bottom: 0rem !important;
+}
+
 .business-form{
     top: 50%;
     left: 50%;
@@ -30,17 +34,27 @@
 .search-form{
     background-color: #0b223600;
     box-shadow: 0 0 10px #fff!important;
+    border-radius: 5px;
 }
 
 .search-form input,
 .search-form button,
 .search-form select{
-  border-radius: 0 !important;
   text-decoration: none;
   outline: none !important;
-  border-bottom: 2px purple !important;
 }
 
 .search-form label{
   color: #fff;
+}
+
+.search-form .form-group input {
+  padding-right: 0px !important;
+  font-size: 20px !important;
+}
+
+.col-md-6,
+.col-md-2{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }

@@ -9,6 +9,7 @@ var passport = require('passport');
 const authRouter = require('./routes/core/auth');
 const usersRouter = require('./routes/core/users');
 const businessSearch = require('./routes/business/business-search');
+const searchingLocation = require('./routes/business/searching');
 
 const env = process.env.NODE_ENV = process.env.NODE_ENV || 'local';
 
@@ -49,6 +50,7 @@ app.use('/api/users', authRouter)
 
 app.use('/api/user', usersRouter);
 app.use('/api/business-search', businessSearch)
+app.use('/api/searching-location', searchingLocation)
 
 
 app.use(function (err, req, res, next) {
