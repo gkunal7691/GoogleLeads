@@ -1,4 +1,4 @@
-.home-sereen{
+/* .home-sereen{
   background: url('../../../assets/image/Google_Searches.jpg');
   background-position: center;
   background-repeat: no-repeat;
@@ -7,9 +7,9 @@
   height: 100%;
   position: absolute;
   z-index: -1;
-}
+} */
 
-.image-overlay{
+/* .image-overlay{
     background-color:#0b22366b;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,19 +17,19 @@
     width: 100%;
     height: 100%;
     position: absolute;
-}
+} */
 
 .form-group {
   margin-bottom: 0rem !important;
 }
 
-.business-form{
+/* .business-form{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     position: absolute;
     width: 70%;
-}
+} */
 
 .search-form{
     background-color: #0b223600;
@@ -51,10 +51,4 @@
 .search-form .form-group input {
   padding-right: 0px !important;
   font-size: 20px !important;
-}
-
-.col-md-6,
-.col-md-2{
-  padding-left: 0px !important;
-  padding-right: 0px !important;
 }
