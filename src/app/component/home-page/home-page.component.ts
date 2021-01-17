@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { from } from 'rxjs';
 import { BusinessSearchService } from '../../services/business-search.service';
+import { ApiKeyService } from '../../services/api-key.service'
 
 @Component({
   selector: 'app-home-page',
@@ -10,14 +12,19 @@ import { BusinessSearchService } from '../../services/business-search.service';
 export class HomePageComponent implements OnInit {
   allSearchData: any;
   searchBusinessForm: FormGroup;
+  updateNewApi: FormGroup;
   hideSearchTable: boolean;
   loader:boolean;
-  home:boolean;
+  popUp:boolean;
+  @Input() item: boolean;  
 
-  constructor(private fb: FormBuilder, private businessSearchService : BusinessSearchService) { }
+
+  constructor(private fb: FormBuilder, private businessSearchService : BusinessSearchService,
+    private apikey : ApiKeyService) { }
 
   ngOnInit(): void {
     this.onBusinessSearch();
+    this.onApiKey();
   }
   
   onBusinessSearch() {
@@ -27,9 +34,14 @@ export class HomePageComponent implements OnInit {
     });
   }
 
+  onApiKey() {
+    this.updateNewApi = this.fb.group({
+      apikey: ['', [Validators.required]],
+    });
+  }
+
   onSearchProCustomer() {
     this.loader=true;
-    this.home=true;
     this.businessSearchService.searchingData(
       this.searchBusinessForm.value
     ).subscribe((res:any)=>{
@@ -42,5 +54,25 @@ export class HomePageComponent implements OnInit {
         console.log("error")
       }
     })  
+  }
+
+  backToSearch(){
+    this.hideSearchTable=false;
+  }
+  
+  openPopUp(){
+    this.popUp=true;
+  }
+  closePopUp(){
+    this.popUp=false;
+  }
+  submitPopUp(){
+    this.apikey.newApiKey(this.updateNewApi.value).subscribe((api:any)=>{
+      if(api['success']){
+        console.log("Apikey Update successfuly")
+      }else{
+        console.log("Unable to update the Apikey.")
+      }
+    })
   }
 }

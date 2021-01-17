@@ -1,3 +1,6 @@
+body{
+  background: teal;
+}
 .home-sereen{
   /* background: url('../../../assets/image/Google_Searches.jpg'); */
   /* background-position: center;
@@ -6,10 +9,11 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  z-index: -1;
-  background-color: tomato;
-  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 50% 85%, 0% 60%);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 65%, 50% 85%, 0% 65%);
+  background: #f6f86f;
+  /* background: linear-gradient(#fff,#000); */
+  /* background-color: #fffc65; */
+  /* -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 50% 85%, 0% 60%); */
+  /* clip-path: polygon(0% 0%, 100% 0%, 100% 65%, 50% 85%, 0% 65%); */
 }
 
 /* .image-overlay{
@@ -64,38 +68,15 @@
   padding:0px !important;
 }
 
-#yin-yang {
-  width: 96px;
-  box-sizing: content-box;
-  height: 48px;
-  background: #eee;
-  border-color: red;
-  border-style: solid;
-  border-width: 2px 2px 50px 2px;
-  border-radius: 100%;
-  position: relative;
+table{
+  border: 1px solid #c4c4c4;
 }
-#yin-yang:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  background: #eee;
-  border: 18px solid red;
-  border-radius: 100%;
-  width: 12px;
-  height: 12px;
-  box-sizing: content-box;
-}
-#yin-yang:after {
-  content: "";
-  position: absolute;
+
+#pop{
   top: 50%;
   left: 50%;
-  background: red;
-  border: 18px solid #eee;
-  border-radius: 100%;
-  width: 12px;
-  height: 12px;
-  box-sizing: content-box;
+  transform: translate(-50%,-50%);
+  position: absolute;
+  background: #fff;
+  box-shadow: 0 0 10px #fff;
 }

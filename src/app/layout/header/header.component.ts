@@ -9,7 +9,7 @@ import { CacheService } from 'src/app/services/cache.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  settingPopup:boolean = false;
+  settingPopup:boolean;
   joinButton: boolean = true;
   constructor(private router: Router, public cacheService: CacheService) { }
 

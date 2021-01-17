@@ -68,7 +68,7 @@
                         data-toggle="collapse" data-target="#ftco-nav">Register</a>
                 </li>
                 <li class="nav-item" class="settingImage">
-                    <a id="color" class="nav-link" (click)="settingsPopup()" 
+                    <a class="nav-link" (click)="settingsPopup()"
                         data-toggle="collapse" data-target="#ftco-nav"><img src="../../../assets/icon/settings.png" alt="setting"></a>
                 </li>
                 <ul class="nav navbar-right list-inline big-screen" *ngIf="cacheService.getUserDetails()"
@@ -111,9 +111,3 @@
     </div>
 </nav>
 <!-- END nav -->
-
-<ng-template id="!settingPopup">
-     <form action="">
-         <input type="text">
-     </form>
-</ng-template>
