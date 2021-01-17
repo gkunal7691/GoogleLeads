@@ -11,7 +11,7 @@
                             <div class="form-group">
                                 <div class="form-field px-1 py-3">
                                     <input type="text" name="keyword" class="form-control"
-                                        placeholder="eg. Interior Designer"
+                                        placeholder="Eg. Interior Designer"
                                         [formControl]="searchBusinessForm.controls['keyword']">
                                 </div>
                             </div>
@@ -62,12 +62,12 @@
             <h1 class="table-heading-text">SEARCH RESULT</h1>
         </div>
         <div class="pt-3">
-            <button class="btn btn-background" (click)="backToSearch()">BACK TO SEARCH</button>
+            <button class="btn btn-background space" (click)="backToSearch()">BACK TO SEARCH</button>
         </div>
     </div>
     <div class="pt-2">
         <table class="table table-striped px-5">
-            <thead class="table-dark">
+            <thead class="btn-background">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">NAME</th>
@@ -102,16 +102,16 @@
         </div>
         <div class="d-flex">
             <div class="col-md">
-                <div class="form-group close p-1">
+                <div class="form-group close pr-5 p-1">
                     <div>
-                        <button type="submit" class="form-control btn darks" (click)="closePopUp()">CLOSE</button>
+                        <button type="submit" class="form-control btn darks px-3" (click)="closePopUp()">CLOSE</button>
                     </div>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-group p-1">
                     <div>
-                        <button type="submit" class="form-control btn btn-background"
+                        <button type="submit" class="form-control btn btn-background px-4"
                             (click)="submitPopUp()">APIKRY</button>
                     </div>
                 </div>

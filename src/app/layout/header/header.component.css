@@ -84,8 +84,7 @@
 
 .logo-text{
   position: relative;
-  top: 3px;
-  font-size: 40px;
+  font-size: 30px;
   right: 15px;
   background: -webkit-linear-gradient(#953dd5,#2576e1,#3bd6c6);
   -webkit-background-clip: text;
