@@ -1,8 +1,8 @@
-<div>
-    <div class="home-sereen">
+<div *ngIf="!hideSearchTable" class=" container pt-5">
+    <div class="home-sereen pt-5">
         <div class="image-overlay"></div>
         <div class="business-form hover">
-            <div class="search-form p-5" role="tabpanel" aria-labelledby="v-pills-performance-tab">
+            <div class="search-form py-5" role="tabpanel" aria-labelledby="v-pills-performance-tab">
                 <form action="#" class="business-search">
                     <div class="row">
                         <!-- Input Field-->
@@ -36,25 +36,28 @@
                     </div>
                 </form>
             </div>
-            <div>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">SL NO</th>
-                            <th scope="col">NAME</th>
-                            <th scope="col">ADDRESS</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let searchData of allSearchData; index as i;">
-                            <th scope="row">{{i+1}}</th>
-                            <td>{{searchData.name}}</td>
-                            <td>{{searchData.vicinity}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
         </div>
     </div>
 </div>
+
+<section class="pt-5" *ngIf="hideSearchTable">
+    <div class="pt-5">
+        <table class="table table-striped px-5">
+            <thead>
+                <tr>
+                    <th scope="col">SL NO</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">ADDRESS</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let searchData of allSearchData; index as i;">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{searchData.name}}</td>
+                    <td>{{searchData.vicinity}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

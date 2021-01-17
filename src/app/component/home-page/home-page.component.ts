@@ -10,6 +10,7 @@ import { BusinessSearchService } from '../../services/business-search.service';
 export class HomePageComponent implements OnInit {
   allSearchData: any;
   searchBusinessForm: FormGroup;
+  hideSearchTable: boolean;
 
   constructor(private fb: FormBuilder, private businessSearchService : BusinessSearchService) { }
 
@@ -20,7 +21,6 @@ export class HomePageComponent implements OnInit {
   onBusinessSearch() {
     this.searchBusinessForm = this.fb.group({
       keyword: ['', [Validators.required]],
-      // category: ['', [Validators.required]],
       radius: ['', [Validators.required]],
     });
   }
@@ -31,6 +31,7 @@ export class HomePageComponent implements OnInit {
     ).subscribe((res:any)=>{
       this.allSearchData = res.data;
       if(res['success']){
+        this.hideSearchTable=true;
         console.log("success")
       }else{
         console.log("error")

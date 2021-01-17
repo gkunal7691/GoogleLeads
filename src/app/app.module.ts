@@ -13,6 +13,7 @@ import { CacheService } from './services/cache.service';
 import { AuthLoadService } from './services/auth.service';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HomePageComponent } from './component/home-page/home-page.component';
+import { LayoutModule } from '../app/layout/layout.module';
 
 
 export function usersProviderFactory(provider: AuthLoadService) {
@@ -35,6 +36,7 @@ export function usersProviderFactory(provider: AuthLoadService) {
     ReactiveFormsModule,
     HttpClientModule,
     CarouselModule,
+    LayoutModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot()
   ],
