@@ -1,6 +1,3 @@
-body{
-  background: teal;
-}
 .home-sereen{
   /* background: url('../../../assets/image/Google_Searches.jpg'); */
   /* background-position: center;
@@ -9,7 +6,7 @@ body{
   width: 100%;
   height: 100%;
   position: absolute;
-  background: #f6f86f;
+  background: #f9f9f9;
   /* background: linear-gradient(#fff,#000); */
   /* background-color: #fffc65; */
   /* -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 50% 85%, 0% 60%); */
@@ -42,19 +39,19 @@ body{
 
 .search-form{
     background-color: #0b223600;
-    box-shadow: 0 0 10px #fff!important;
-    border-radius: 5px;
 }
 
-.search-form input,
-.search-form button,
-.search-form select{
-  text-decoration: none;
-  outline: none !important;
+input[type=text]{
+  background-color: #f9f9f9 !important;
+  outline: none !important; 
 }
 
 .search-form label{
   color: #fff;
+}
+.table-head,
+::placeholder{
+  color: #963dd59f;
 }
 
 .search-form .form-group input {
@@ -78,5 +75,22 @@ table{
   transform: translate(-50%,-50%);
   position: absolute;
   background: #fff;
-  box-shadow: 0 0 10px #fff;
+  box-shadow: 0 0 10px #953dd5;
+}
+
+.btn-background{
+  background-image: linear-gradient(90deg,#953dd5,#2576e1,#3bd6c6) !important;
+  color: #fff !important;
+}
+
+.darks{
+  color: #953dd5 !important;
+  border: 2px solid #953dd5;
+}
+
+.table-heading-text{
+  right: 15px;
+  background: -webkit-linear-gradient(#953dd5,#2576e1,#3bd6c6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

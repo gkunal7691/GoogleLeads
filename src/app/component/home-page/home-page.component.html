@@ -36,7 +36,7 @@
                             <div class="form-group">
                                 <div class="form-field p-1 pt-3">
                                     <button type="submit" [disabled]="!searchBusinessForm.valid"
-                                        class="form-control btn btn-primary"
+                                        class="form-control btn-background"
                                         (click)="onSearchProCustomer()">SEARCH</button>
                                 </div>
                             </div>
@@ -44,8 +44,8 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <div class="form-field p-1 pt-3">
-                                    <button type="submit" class="form-control btn btn-primary"
-                                        (click)="openPopUp()">POPUP</button>
+                                    <button type="submit" class="form-control btn-background"
+                                        (click)="openPopUp()">SETTING</button>
                                 </div>
                             </div>
                         </div>
@@ -59,10 +59,10 @@
 <section class="pt-5 container" *ngIf="hideSearchTable">
     <div class="d-flex justify-content-between pt-5">
         <div class="justify-content-between">
-            <h1>SEARCH RESULT</h1>
+            <h1 class="table-heading-text">SEARCH RESULT</h1>
         </div>
         <div class="pt-3">
-            <button class="btn btn-primary" (click)="backToSearch()">BACK TO SEARCH</button>
+            <button class="btn btn-background" (click)="backToSearch()">BACK TO SEARCH</button>
         </div>
     </div>
     <div class="pt-2">
@@ -88,7 +88,7 @@
 
 <div class="card p-5" id="pop" *ngIf="popUp">
     <div>
-        <h4><b>Enter the new API key</b></h4>
+        <h4 class="table-heading-text"><b>Enter the new API key</b></h4>
     </div>
     <form action="#">
         <div class="w-100">
@@ -104,15 +104,15 @@
             <div class="col-md">
                 <div class="form-group close p-1">
                     <div>
-                        <button type="submit" class="form-control btn btn-dark" (click)="closePopUp()">CLOSE</button>
+                        <button type="submit" class="form-control btn darks" (click)="closePopUp()">CLOSE</button>
                     </div>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-group p-1">
                     <div>
-                        <button type="submit" class="form-control btn btn-primary"
-                            (click)="submitPopUp()">SUBMIT</button>
+                        <button type="submit" class="form-control btn btn-background"
+                            (click)="submitPopUp()">APIKRY</button>
                     </div>
                 </div>
             </div>
