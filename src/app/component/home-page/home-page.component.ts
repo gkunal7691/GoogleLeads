@@ -11,6 +11,8 @@ export class HomePageComponent implements OnInit {
   allSearchData: any;
   searchBusinessForm: FormGroup;
   hideSearchTable: boolean;
+  loader:boolean;
+  home:boolean;
 
   constructor(private fb: FormBuilder, private businessSearchService : BusinessSearchService) { }
 
@@ -26,11 +28,14 @@ export class HomePageComponent implements OnInit {
   }
 
   onSearchProCustomer() {
+    this.loader=true;
+    this.home=true;
     this.businessSearchService.searchingData(
       this.searchBusinessForm.value
     ).subscribe((res:any)=>{
       this.allSearchData = res.data;
       if(res['success']){
+        this.loader=false;
         this.hideSearchTable=true;
         console.log("success")
       }else{

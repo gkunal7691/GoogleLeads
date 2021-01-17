@@ -1,8 +1,9 @@
-<div *ngIf="!hideSearchTable" class=" container pt-5">
-    <div class="home-sereen pt-5">
+<div *ngIf="!hideSearchTable" class="background ">
+    <div *ngIf="!home" class="home-sereen pt-5">
         <div class="image-overlay"></div>
-        <div class="business-form hover">
-            <div class="search-form py-5" role="tabpanel" aria-labelledby="v-pills-performance-tab">
+        <div class="loader" *ngIf="loader"><img src="../../../assets/icon/loader.gif" alt="loader"></div>
+        <div class="business-form pt-5 hover">
+            <div class="search-form container py-5" role="tabpanel" aria-labelledby="v-pills-performance-tab">
                 <form action="#" class="business-search">
                     <div class="row">
                         <!-- Input Field-->
@@ -23,10 +24,18 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Button -->
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <div class="form-group">
-                                <div class="form-field p-1">
+                                <div class="form-field px-1 py-3">
+                                    <input type="text" name="location" class="form-control" placeholder="Location"
+                                        >
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Button -->
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <div class="form-field p-1 pt-3">
                                     <button type="submit" [disabled]="!searchBusinessForm.valid"
                                         class="form-control btn btn-primary"
                                         (click)="onSearchProCustomer()">Search</button>
