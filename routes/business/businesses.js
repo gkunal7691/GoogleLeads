@@ -10,6 +10,7 @@ var request = require('request');
 router.post('/', async (req, res, next) => {
     var allImportsData = req.body;
     var eachImportData = allImportsData.map(x => x.place_id)
+    let count = 0;
     for (var i = 0; i < eachImportData.length; i++) {
         var option = {
             method: 'GET',
@@ -25,8 +26,11 @@ router.post('/', async (req, res, next) => {
                     placeId: body.result.place_id,
                     address: body.result.formatted_address
                 }
-            ).then(data => {
-                res.json({ success: true, data: data })
+            ).then(() => {
+                if (count == eachImportData.length - 1) {
+                    res.json({ success: true})
+                }
+                count++;
             }).catch(next)
         })
     }
