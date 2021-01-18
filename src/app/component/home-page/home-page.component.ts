@@ -24,7 +24,6 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.onBusinessSearch();
-    this.onApiKey();
   }
   
   onBusinessSearch() {
@@ -34,11 +33,7 @@ export class HomePageComponent implements OnInit {
     });
   }
 
-  onApiKey() {
-    this.updateNewApi = this.fb.group({
-      apikey: ['', [Validators.required]],
-    });
-  }
+  
 
   onSearchProCustomer() {
     this.loader=true;
@@ -60,19 +55,4 @@ export class HomePageComponent implements OnInit {
     this.hideSearchTable=false;
   }
   
-  openPopUp(){
-    this.popUp=true;
-  }
-  closePopUp(){
-    this.popUp=false;
-  }
-  submitPopUp(){
-    this.apikey.newApiKey(this.updateNewApi.value).subscribe((api:any)=>{
-      if(api['success']){
-        console.log("Apikey Update successfuly")
-      }else{
-        console.log("Unable to update the Apikey.")
-      }
-    })
-  }
 }

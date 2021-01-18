@@ -1,0 +1,25 @@
+<div class="container setting">
+    <div>
+        <h4 class="table-heading-text"><b>Enter the new API key</b></h4>
+    </div>
+    <form action="#">
+        <div class="col-md">
+            <div class="form-group">
+                <div class="form-field px-1 py-3">
+                    <input type="text" name="apiKey" class="form-control"
+                    [formControl]="updateNewApi.controls['apikey']" placeholder="API-KEY">
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <div class="col-md-4 ">
+                <div class="form-group p-1">
+                    <div>
+                        <button type="submit" class="form-control btn btn-background px-4"
+                            (click)="submitPopUp()">APIKRY</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

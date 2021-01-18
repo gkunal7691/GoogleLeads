@@ -28,7 +28,4 @@ export class HeaderComponent implements OnInit {
   settingsPopup(){
     this.settingPopup=true;
   }
-  backToSearchPage(){
-    location.reload();
-  }
 }
