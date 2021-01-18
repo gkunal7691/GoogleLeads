@@ -52,4 +52,9 @@ export class HomePageComponent implements OnInit {
     this.hideSearchTable=false;
   }
   
+  onImport(){
+    this.businessSearchService.importData(this.allSearchData).subscribe((res:any)=>{
+      console.log(res.data)
+    })
+  }
 }
