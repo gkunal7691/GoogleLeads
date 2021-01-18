@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { from } from 'rxjs';
 import { BusinessSearchService } from '../../services/business-search.service';
 import { ApiKeyService } from '../../services/api-key.service'
 
@@ -15,8 +14,6 @@ export class HomePageComponent implements OnInit {
   updateNewApi: FormGroup;
   hideSearchTable: boolean;
   loader:boolean;
-  popUp:boolean;
-  @Input() item: boolean;  
 
 
   constructor(private fb: FormBuilder, private businessSearchService : BusinessSearchService,
@@ -29,7 +26,7 @@ export class HomePageComponent implements OnInit {
   onBusinessSearch() {
     this.searchBusinessForm = this.fb.group({
       keyword: ['', [Validators.required]],
-      radius: ['', [Validators.required]],
+      radius: ['10', [Validators.required]],
     });
   }
 

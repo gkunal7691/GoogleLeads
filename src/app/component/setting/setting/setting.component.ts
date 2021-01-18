@@ -9,23 +9,45 @@ import { ApiKeyService } from 'src/app/services/api-key.service';
 })
 export class SettingComponent implements OnInit {
 
-  updateNewApi:FormGroup;
+  updateNewApi: FormGroup;
+  apikeyTest: string = 'EDIT';
+  
 
-  constructor(private fb: FormBuilder, private apikey : ApiKeyService) { }
+  constructor(private fb: FormBuilder, private apikey: ApiKeyService) { }
 
   ngOnInit(): void {
-      this.updateNewApi = this.fb.group({
-        apikey: ['', [Validators.required]],
-      });
+    this.updateNewApi = this.fb.group({
+      apikey: ['', [Validators.required]],
+    });
+    this.apikeyValue();
   }
 
-  submitPopUp(){
-    this.apikey.newApiKey(this.updateNewApi.value).subscribe((api:any)=>{
-      if(api['success']){
+  apikeyValue() {
+    this.apikey.getApiKey().subscribe((res: any) => {
+      this.updateNewApi.get('apikey').setValue(res.data[0].apikey);
+      this.updateNewApi.disable();
+    })
+  }
+
+  apikeyUpdate() {
+    this.apikey.newApiKey(this.updateNewApi.value).subscribe((api: any) => {
+      if (api['success']) {
         console.log("Apikey Update successfuly")
-      }else{
+      } else {
         console.log("Unable to update the Apikey.")
       }
     })
+  }
+
+  submitApikey() {
+    if (this.apikeyTest === "EDIT") {
+      this.updateNewApi.enable();
+      this.apikeyTest = "SAVE";
+
+    } else {
+      this.apikeyUpdate()
+      this.apikeyTest = "EDIT";
+      this.updateNewApi.disable();
+    }
   }
 }

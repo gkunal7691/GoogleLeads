@@ -6,107 +6,18 @@
             GOOGLE LEADS
         </a>
 
-        <ul class="nav navbar-right list-inline d-sm-block d-lg-none d-md-none d-xl-none"
-            *ngIf="cacheService.getUserDetails()">
-            <li class="dropdown user-box list-inline-item">
-                <a href="" id="user-desktop" class="dropdown-toggle waves-effect user-link" data-toggle="dropdown"
-                    aria-expanded="true">
-                    <img src="../../assets/template/images/user.svg" alt="user-img" class="rounded-circle user-img">
-                </a>
-                <ul
-                    class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
-                    <li>
-                        <a href="javascript:void(0)" class="dropdown-item" (click)="userProfile()">My Profile</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)" class="dropdown-item" [routerLink]="'/mytasks'">My Tasks</a>
-                    </li>
-                    <li *ngIf="!joinButton">
-                        <a href="javascript:void(0)" class="dropdown-item" [routerLink]="'/applied'">My Applied
-                            Tasks</a>
-                    </li>
-                    <li *ngIf="!joinButton">
-                        <a href="javascript:void(0)" class="dropdown-item" [routerLink]="'/requested'">Requested
-                            Tasks</a>
-                    </li>
-                    <li class="dropdown-divider"></li>
-                    <li>
-                        <a href="javascript:void(0)" class="dropdown-item" (click)="logout()">Logout</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-            aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="oi oi-menu"></span> Menu
-        </button>
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a [routerLink]="['']" class="nav-link" data-toggle="collapse" id="color" data-target="#ftco-nav">HOME</a>
+                    <a [routerLink]="['']" class="nav-link" data-toggle="collapse" id="color"
+                        data-target="#ftco-nav">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a [routerLink]="'/aboutus'" class="nav-link" id="color" data-toggle="collapse"
-                        data-target="#ftco-nav">ABOUT</a>
+                    <a [routerLink]="['/apikey']" class="nav-link" data-toggle="collapse" data-target="#ftco-nav"><i
+                            class="fas fa-cog"></i></a>
                 </li>
-                <li class="nav-item d-sm-none d-block">
-                    <a [routerLink]="['/task']" class="nav-link" data-toggle="collapse" data-target="#ftco-nav">Post
-                        Task</a>
-                </li>
-                <li class="nav-item d-sm-none d-block" *ngIf="joinButton">
-                    <a (click)="onBtnClick()" class="nav-link" data-toggle="collapse" data-target="#ftco-nav">Become A
-                        Earner</a>
-                </li>
-                <li class="nav-item">
-                    <a [routerLink]="['/login']" id="color" class="nav-link mb-0" *ngIf="!cacheService.getUserDetails()"
-                        data-toggle="collapse" data-target="#ftco-nav">LOGIN</a>
-                </li>
-                <li class="nav-item">
-                    <a [routerLink]="['/register']" id="reg-color" class="nav-link"
-                        data-toggle="collapse" data-target="#ftco-nav">REGISTER</a>
-                </li>
-                <li class="nav-item" class="settingImage">
-                    <a [routerLink]="['/apikey']" class="nav-link" 
-                        data-toggle="collapse" data-target="#ftco-nav"><img src="../../../assets/icon/settings.png" alt="setting"></a>
-                </li>
-                <ul class="nav navbar-right list-inline big-screen" *ngIf="cacheService.getUserDetails()"
-                    style="padding-right: 69px">
-                    <li class="dropdown user-box list-inline-item">
-                        <a href="" id="user-desktop" class="dropdown-toggle waves-effect user-link"
-                            data-toggle="dropdown" aria-expanded="true">
-                            <img src="../../assets/template/images/user.svg" alt="user-img"
-                                class="rounded-circle user-img">
-                        </a>
-                        <ul
-                            class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
-                            <li>
-                                <a href="javascript:void(0)" class="dropdown-item" (click)="userProfile()"
-                                    data-toggle="collapse" data-target="#ftco-nav">My Profile</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" class="dropdown-item" [routerLink]="'/mytasks'"
-                                    data-toggle="collapse" data-target="#ftco-nav">My Tasks</a>
-                            </li>
-                            <li *ngIf="!joinButton">
-                                <a href="javascript:void(0)" class="dropdown-item" data-toggle="collapse"
-                                    data-target="#ftco-nav" [routerLink]="'/applied'">My Applied Tasks</a>
-                            </li>
-                            <li *ngIf="!joinButton">
-                                <a href="javascript:void(0)" class="dropdown-item" [routerLink]="'/requested'"
-                                    data-toggle="collapse" data-target="#ftco-nav">Requested Tasks</a>
-                            </li>
-                            <li class="dropdown-divider"></li>
-                            <li>
-                                <a href="javascript:void(0)" class="dropdown-item" (click)="logout()"
-                                    data-toggle="collapse" data-target="#ftco-nav">Logout</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
             </ul>
-
         </div>
     </div>
 </nav>

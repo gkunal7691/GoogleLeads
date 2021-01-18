@@ -10,9 +10,3 @@
 @import "./assets/template/css/icomoon.css";
 @import "./assets/template/css/style.css";
 
-body{
-    background-color: #f9f9f9;
-}
-.form-control{
-    border-radius: 30px;
-}

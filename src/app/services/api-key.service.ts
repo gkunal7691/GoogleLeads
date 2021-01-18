@@ -19,4 +19,8 @@ export class ApiKeyService {
   newApiKey( sendApiKey ){
     return this.httpClient.put<object>(`${this.apiPath}/${this.apikeys}/`, sendApiKey)
   }
+
+  getApiKey( ){
+    return this.httpClient.get<object>(`${this.apiPath}/${this.apikeys}/`)
+  }
 }

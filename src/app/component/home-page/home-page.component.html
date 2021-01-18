@@ -16,18 +16,20 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-field px-1 py-3">
+                                    <input type="text" name="location" class="form-control" placeholder="Location">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <div class="form-field px-1 py-3">
                                     <input type="text" name="radius" class="form-control" placeholder="Radius in KM"
                                         [formControl]="searchBusinessForm.controls['radius']">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <div class="form-field px-1 py-3">
-                                    <input type="text" name="location" class="form-control" placeholder="Location">
                                 </div>
                             </div>
                         </div>
@@ -36,16 +38,8 @@
                             <div class="form-group">
                                 <div class="form-field p-1 pt-3">
                                     <button type="submit" [disabled]="!searchBusinessForm.valid"
-                                        class="form-control btn-background"
+                                        class="form-control btn btn-primary"
                                         (click)="onSearchProCustomer()">SEARCH</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <div class="form-field p-1 pt-3">
-                                    <button type="submit" class="form-control btn-background"
-                                        (click)="openPopUp()">SETTING</button>
                                 </div>
                             </div>
                         </div>
@@ -62,12 +56,12 @@
             <h1 class="table-heading-text">SEARCH RESULT</h1>
         </div>
         <div class="pt-3">
-            <button class="btn btn-background space" (click)="backToSearch()">BACK TO SEARCH</button>
+            <button class="btn btn-primary space" (click)="backToSearch()">BACK TO SEARCH</button>
         </div>
     </div>
     <div class="pt-2">
         <table class="table table-striped px-5">
-            <thead class="btn-background">
+            <thead class="table-dark">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">NAME</th>
