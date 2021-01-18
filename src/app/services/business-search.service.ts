@@ -12,7 +12,7 @@ export class BusinessSearchService {
   constructor(private httpClient: HttpClient) { 
     const env: any = environment;
     this.apiPath = env.paths.api;
-    this.searchingLocation = 'business-search/search';
+    this.searchingLocation = 'businesses/search';
   }
 
   searchingData( sendSearchData ){
