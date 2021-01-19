@@ -9,6 +9,8 @@ import { BusinessSearchService } from 'src/app/services/business-search.service'
 export class BusinessesComponent implements OnInit {
 
   allBusinesses:any;
+  websites:any;
+  isWebsite:boolean=true;
 
   constructor(private businessSearchService : BusinessSearchService) {  }
 
@@ -17,7 +19,18 @@ export class BusinessesComponent implements OnInit {
   }
   allBusinessesData(){
     this.businessSearchService.getBusinessesData().subscribe((res:any)=>{
-      this.allBusinesses=res.data;
+      this.allBusinesses = res.data;
+      this.websites = res.data;
     })
+  }
+  website(clicked){
+    console.log(clicked)
+    if(this.isWebsite==true){
+      this.allBusinesses= this.websites.filter((x)=>{
+        return x.website==null;
+      })
+    }else{
+      this.websites
+    }
   }
 }
