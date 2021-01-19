@@ -1,3 +1,11 @@
+body{
+    background-color: #f9f9f9;
+}
+
 .padding-top{
 padding-top: 7em;
+}
+
+.widthForPhone{
+    width: 10%;
 }

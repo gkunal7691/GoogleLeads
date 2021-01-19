@@ -16,16 +16,4 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-
-  logout() {
-    this.cacheService.removeCache('token');
-    this.router.navigateByUrl('');
-    location.reload();
-    // location.reload()
-  }
-
-  settingsPopup(){
-    this.settingPopup=true;
-  }
 }

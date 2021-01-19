@@ -48,14 +48,22 @@
             </div>
             <div class="col-4 offset-4">
                 <div class="d-flex justify-content-end">
+                    <!-- <button (click)="onExport()" class="mr-3 mt-2 export-btn" mat-mini-fab color="primary"
+                        title="Export the Data">
+                        <mat-icon> import_export</mat-icon>
+                    </button> -->
+                    <button mat-mini-fab color="primary" class="mr-3 mt-2" title="Export the Data" (click)="exporter.exportTable('csv')">
+                        <mat-icon> import_export</mat-icon>
+                    </button>
                     <mat-checkbox class="mat-card check-style" color="primary" title="Website Not Available"
-                    (change)="website($event.checked)">
+                        (change)="website($event.checked)">
                         Website Not Available
                     </mat-checkbox>
                 </div>
             </div>
         </div>
-        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 w-100 mt-4">
+        <table mat-table matTableExporter [dataSource]="dataSource" matSort #exporter="matTableExporter"
+            class="mat-elevation-z8 w-100 mt-4">
             <ng-container matColumnDef="businessName">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Business Name</th>
                 <td mat-cell *matCellDef="let user">
@@ -63,7 +71,7 @@
                 </td>
             </ng-container>
             <ng-container matColumnDef="phone">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="widthForPhone">Phone</th>
                 <td mat-cell *matCellDef="let user">{{user?.phone}}</td>
             </ng-container>
             <ng-container matColumnDef="website">
@@ -73,6 +81,10 @@
             <ng-container matColumnDef="address">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
                 <td mat-cell *matCellDef="let user">{{user?.address}}</td>
+            </ng-container>
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+                <td mat-cell *matCellDef="let user">{{user?.status}}</td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -14,8 +14,8 @@ export class BusinessesComponent implements OnInit {
 
   allBusinesses:any;
   websites:any;
-  isWebsite:boolean=true;
-  displayedColumns: string[] = ["businessName", "phone", "website", "address"];
+  isWebsite:boolean=true
+  displayedColumns: string[] = ["businessName", "phone", "website", "address", "status"];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -25,6 +25,7 @@ export class BusinessesComponent implements OnInit {
   ngOnInit(): void {
     this.allBusinessesData()
   }
+
 
   website(clicked){
     if(clicked){
@@ -37,7 +38,6 @@ export class BusinessesComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.allBusinesses);
     }
   }
-
 
   allBusinessesData() {
     this.businessSearchService.getBusinessesData().subscribe((res: any) => {

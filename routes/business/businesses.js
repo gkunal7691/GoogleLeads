@@ -28,7 +28,8 @@ router.post('/', async (req, res, next) => {
                         phone: body.result.formatted_phone_number,
                         website: body.result.website,
                         placeId: body.result.place_id,
-                        address: body.result.formatted_address
+                        address: body.result.formatted_address,
+                        status: 'Import'
                     }
                 ).then(() => {
                     if (count == eachImportData.length - 1) {

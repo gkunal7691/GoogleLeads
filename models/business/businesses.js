@@ -27,6 +27,10 @@ module.exports = (sequelize, DataTypes) => {
         address: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        status: {
+            type: DataTypes.ENUM('Export', 'Import', 'Active', 'Deactive'),
+            allowNull: false
         }
     }, {
         tableName: 'businesses',
