@@ -16,7 +16,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <div class="form-field px-1 py-3">
@@ -28,10 +28,15 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <div class="form-field px-1 py-3">
-                                    <input type="number" name="radius" class="form-control" [min]="0.01" [max]="50" [step]="0.01" placeholder="Radius in KM"
+                                    <input type="number" name="radius" class="form-control" [min]="0.01" [max]="50"
+                                        [step]="0.01" placeholder="Radius in KM"
                                         [formControl]="searchBusinessForm.controls['radius']">
-                                        <small class="text-danger" *ngIf="searchBusinessForm.get('radius').errors?.min ">Radius should be greater then 0.01 Kilometer.</small>
-                                        <small class="text-danger" *ngIf="searchBusinessForm.get('radius').errors?.max ">Radius should be less then 50 Kilometer.</small>
+                                    <small class="text-danger"
+                                        *ngIf="searchBusinessForm.get('radius').errors?.min ">Radius should be greater
+                                        then 0.01 Kilometer.</small>
+                                    <small class="text-danger"
+                                        *ngIf="searchBusinessForm.get('radius').errors?.max ">Radius should be less then
+                                        50 Kilometer.</small>
                                 </div>
                             </div>
                         </div>
@@ -48,39 +53,48 @@
                     </div>
                 </form>
             </div>
+            <div class="container">
+                <div class="justify-content-between">
+                    <h1>SEARCH LIST</h1>
+                </div>
+                <mat-card class="w-100 pt-3">
+                    <div class="row">
+                        <div class="col-4">
+                            <mat-form-field class="w-100">
+                                <mat-label>Search</mat-label>
+                                <input matInput (keyup)="search($event.target.value)">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-4 offset-4">
+                            <div class="d-flex justify-content-end">
+                                <div class="col-4 offset-4">
+                                    <div class="d-flex justify-content-end">
+                                        <button (click)="onImport()" class="mr-1" mat-mini-fab color="primary"
+                                            title="View Facility Details">
+                                            <mat-icon>cloud_download</mat-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 w-100 mt-4">
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                            <td mat-cell *matCellDef="let user">
+                                {{user?.name}}
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="vicinity">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+                            <td mat-cell *matCellDef="let user">{{user?.vicinity}}</td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                    <mat-paginator [pageSizeOptions]="getPageSizeOptions()" showFirstLastButtons></mat-paginator>
+                </mat-card>
+            </div>
         </div>
     </div>
 </div>
-
-<section class="pt-5 container" *ngIf="hideSearchTable">
-    <div class="d-flex justify-content-between pt-5">
-        <div class="justify-content-between">
-            <h1 class="table-heading-text">SEARCH RESULT</h1>
-        </div>
-        <div class="pt-3">
-            <button class="btn btn-primary space mr-2" (click)="onImport()">IMPORT</button>
-
-            <button class="btn btn-primary space" (click)="backToSearch()">BACK</button>
-            
-        </div>
-    </div>
-    <div class="pt-2">
-        <table class="table table-striped px-5">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">NAME</th>
-                    <th scope="col">ADDRESS</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let searchData of allSearchData; index as i;">
-                    <th scope="row">{{i+1}}</th>
-                    <td>{{searchData.name}}</td>
-                    <td>{{searchData.vicinity}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
