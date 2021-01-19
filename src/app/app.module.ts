@@ -15,6 +15,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HomePageComponent } from './component/home-page/home-page.component';
 import { LayoutModule } from '../app/layout/layout.module';
 import { SettingComponent } from './component/setting/setting/setting.component';
+import { BusinessesComponent } from './component/businesses/businesses/businesses.component';
 
 
 export function usersProviderFactory(provider: AuthLoadService) {
@@ -27,6 +28,7 @@ export function usersProviderFactory(provider: AuthLoadService) {
     AppComponent,
     HomePageComponent,
     SettingComponent,
+    BusinessesComponent,
   ],
 
   imports: [

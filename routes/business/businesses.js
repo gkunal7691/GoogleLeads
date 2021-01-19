@@ -43,9 +43,10 @@ router.post('/', async (req, res, next) => {
 
 
 router.get('/', async function (req, res, next) {
-    BusinessSearch.findAll().then((data) => {
+    Businesses.findAll().then((data) => {
+        console.log(data)
         res.json({ success: true, data: data });
-    }).catch(next)
+    }).catch(next=>console.log(next))
 });
 
 router.post('/search', async (req, res, next) => {
