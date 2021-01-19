@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrManager } from 'ng6-toastr-notifications';
 import { ApiKeyService } from 'src/app/services/api-key.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class SettingComponent implements OnInit {
   apikeyTest: string = 'EDIT';
   
 
-  constructor(private fb: FormBuilder, private apikey: ApiKeyService) { }
+  constructor(private fb: FormBuilder, private apikey: ApiKeyService, private toastrManager: ToastrManager) { }
 
   ngOnInit(): void {
     this.updateNewApi = this.fb.group({
@@ -31,10 +32,25 @@ export class SettingComponent implements OnInit {
 
   apikeyUpdate() {
     this.apikey.newApiKey(this.updateNewApi.value).subscribe((api: any) => {
-      if (api['success']) {
-        console.log("Apikey Update successfuly")
-      } else {
-        console.log("Unable to update the Apikey.")
+      if(api['success']){
+        this.toastrManager['successToastr'](
+          'Successfully',
+          'API Key Update',
+          {
+            enableHTML: true,
+            showCloseButton: true
+          }
+        );
+      }else{
+        this.toastrManager['errorToastr'](
+          'API key',
+          'Unable to update',
+          // res.error.name,
+          {
+            enableHTML: true,
+            showCloseButton: true
+          }
+        );
       }
     })
   }

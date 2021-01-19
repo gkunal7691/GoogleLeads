@@ -8,32 +8,37 @@ var request = require('request');
 
 
 router.post('/', async (req, res, next) => {
-    var allImportsData = req.body;
-    var eachImportData = allImportsData.map(x => x.place_id)
-    let count = 0;
-    for (var i = 0; i < eachImportData.length; i++) {
-        var option = {
-            method: 'GET',
-            url: 'https://maps.googleapis.com/maps/api/place/details/json?place_id=' + eachImportData[i] + '&fields=place_id,name,formatted_phone_number,formatted_address,website&key=AIzaSyAhhL0iW8nLYyCPsAHGv2Wj9CIKOx9TiDk',
-            json: true
-        };
-        request(option, function (error, response, body) {
-            Businesses.create(
-                {
-                    businessName: body.result.name,
-                    phone: body.result.formatted_phone_number,
-                    website: body.result.website,
-                    placeId: body.result.place_id,
-                    address: body.result.formatted_address
-                }
-            ).then(() => {
-                if (count == eachImportData.length - 1) {
-                    res.json({ success: true})
-                }
-                count++;
-            }).catch(next)
-        })
-    }
+    Apikey.findOne(
+        { where: { apikeyId: 1 } },
+        { attributes: ['apikey'] }
+    ).then((apikey) => {
+        var allImportsData = req.body;
+        var eachImportData = allImportsData.map(x => x.place_id)
+        let count = 0;
+        for (var i = 0; i < eachImportData.length; i++) {
+            var option = {
+                method: 'GET',
+                url: 'https://maps.googleapis.com/maps/api/place/details/json?place_id=' + eachImportData[i] + '&fields=place_id,name,formatted_phone_number,formatted_address,website&key=' + apikey.apikey,
+                json: true
+            };
+            request(option, function (error, response, body) {
+                Businesses.create(
+                    {
+                        businessName: body.result.name,
+                        phone: body.result.formatted_phone_number,
+                        website: body.result.website,
+                        placeId: body.result.place_id,
+                        address: body.result.formatted_address
+                    }
+                ).then(() => {
+                    if (count == eachImportData.length - 1) {
+                        res.json({ success: true })
+                    }
+                    count++;
+                }).catch(next)
+            })
+        }
+    })
 })
 
 
@@ -63,35 +68,3 @@ router.post('/search', async (req, res, next) => {
 })
 
 module.exports = router;
-
-
-
- // var allImportsData = req.body;
-    // var eachImportData = allImportsData.map(x => x.place_id)
-    // console.log(eachImportData)
-    // var count = 0;
-    // for(var x=0;x<eachImportData.length;x++){
-    // if(eachImportData.length>=count){
-        // var option = {
-        //     method: 'GET',
-        //     url: 'https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJxyAYyJ8WrjsRbvP8BermuDI=place_id,name,formatted_phone_number,formatted_address,website&key=AIzaSyAhhL0iW8nLYyCPsAHGv2Wj9CIKOx9TiDk',
-        //     json: true
-        // };
-        // request(option, function (error, response, body) {
-        //     console.log(option.url)
-        //     console.log(option)
-        //     Businesses.create(
-        //         {
-        //             businessName: body.result.name,
-        //             phone: body.result.formatted_phone_number,
-        //             website: body.result.website,
-        //             placeId: body.result.place_id,
-        //             address: body.result.formatted_address
-        //         }
-        //     ).then(data => {
-        //         res.json({ success: true, data: data })
-        //     }).catch(next => console.log(next))
-        // })
-//     }
-//     count++;
-// }
