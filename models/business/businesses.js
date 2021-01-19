@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-    let BusinessSearch = sequelize.define('business-search', {
+    let Businesses = sequelize.define('businesses', {
         businessId: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -12,26 +12,27 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         phone: {
-            type: DataTypes.INTEGER,
-            allowNull: false
+            type: DataTypes.STRING(100),
+            allowNull: true
         },
         website: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         placeId: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique:true
         },
         address: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         }
     }, {
-        tableName: 'business-search',
+        tableName: 'businesses',
         paranoid: true,
         timestamps: true,
         freezeTableName: true
     });
-    return BusinessSearch
+    return Businesses
 };

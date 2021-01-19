@@ -1,0 +1,27 @@
+<div class="container setting">
+  <div class=" w-50">
+    <div>
+        <h4 class="table-heading-text"><b>Google API Key</b></h4>
+    </div>
+    <form action="#">
+        <div class="col-md">
+            <div class="form-group">
+                <div class="form-field">
+                    <input type="text" name="apiKey" class="form-control"
+                    [formControl]="updateNewApi.controls['apikey']" placeholder="API-KEY">
+                </div>
+            </div>
+        </div>
+        <div class="button-position">
+            <div class="col-md-3">
+                <div class="form-group p-1">
+                    <div>
+                        <button type="submit" class="form-control btn btn-primary px-4"
+                        (click)="submitApikey()">{{apikeyTest}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+  </div>    
+</div>

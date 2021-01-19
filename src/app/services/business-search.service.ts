@@ -7,16 +7,27 @@ import { environment } from 'src/environments/environment';
 })
 export class BusinessSearchService {
   private apiPath: string;
-  private business: string;
+  private searchingLocation: string;
+  private businesses: string;
 
-  constructor(private httpClient: HttpClient) { 
+  constructor(private httpClient: HttpClient) {
     const env: any = environment;
     this.apiPath = env.paths.api;
-    this.business = 'business-search/search-data';
+    this.businesses = 'businesses';
+    this.searchingLocation = 'businesses/search';
+
   }
 
-  searchingData( sendSearchData ){
-    return this.httpClient.post<object>(`${this.apiPath}/${this.business}/`, sendSearchData)
+  searchingData(sendSearchData) {
+    return this.httpClient.post<object>(`${this.apiPath}/${this.searchingLocation}/`, sendSearchData)
+  }
+
+  importData(dataImport) {
+    return this.httpClient.post<object>(`${this.apiPath}/${this.businesses}/`, dataImport)
+  }
+
+  getBusinessesData() {
+    return this.httpClient.get<object>(`${this.apiPath}/${this.businesses}/`)
   }
 
 }

@@ -1,0 +1,15 @@
+.setting{
+    padding-top: 7rem;
+}
+.button-position{
+    display:flex;
+    justify-content:flex-end;
+}
+
+.col-md,
+.col-md-3{
+    padding: 0px !important;
+}
+
+/* pointer-events: auto! important;
+    cursor: not-allowed! important; */

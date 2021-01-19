@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { BusinessSearchService } from '../../services/business-search.service';
+import { ApiKeyService } from '../../services/api-key.service'
+import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
   selector: 'app-home-page',
@@ -8,44 +10,87 @@ import { BusinessSearchService } from '../../services/business-search.service';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  allCategories: any;
-  allRadius: any;
+  allSearchData: any;
   searchBusinessForm: FormGroup;
+  updateNewApi: FormGroup;
+  hideSearchTable: boolean;
+  loader:boolean;
 
-  constructor(private fb: FormBuilder, private businessSearchService : BusinessSearchService) { }
+
+  constructor(private fb: FormBuilder, private businessSearchService : BusinessSearchService, private toastrManager: ToastrManager,
+    private apikey : ApiKeyService) { }
 
   ngOnInit(): void {
-    this.allCategories = [
-      {category: 'Theater'},
-      {category: 'Bar'},
-      {category: 'Spa'},
-    ]
-    this.allRadius = [
-      { radius: '1 km' },
-      { radius: '1.5 km' },
-      { radius: '2 km' },
-      { radius: '2.5 km' },
-    ]
     this.onBusinessSearch();
   }
   
   onBusinessSearch() {
     this.searchBusinessForm = this.fb.group({
-      location: ['', [Validators.required]],
-      category: ['', [Validators.required]],
-      radius: ['', [Validators.required]],
+      keyword: ['', [Validators.required]],
+      radius: ['2', [Validators.required, Validators.max(50), Validators.min(0.01)]],
     });
   }
 
+  
+
   onSearchProCustomer() {
+    this.loader=true;
     this.businessSearchService.searchingData(
       this.searchBusinessForm.value
     ).subscribe((res:any)=>{
+      this.allSearchData = res.data;
       if(res['success']){
+        this.toastrManager['successToastr'](
+          '',
+          'Searched Data',
+          {
+            enableHTML: true,
+            showCloseButton: true
+          }
+        );
+        this.loader=false;
+        this.hideSearchTable=true;
         console.log("success")
       }else{
-        console.log("error")
+        this.toastrManager['errorToastr'](
+          '',
+          'Unable to Find the data',
+          // res.error.name,
+          {
+            enableHTML: true,
+            showCloseButton: true
+          }
+        );
       }
     })  
+  }
+
+  backToSearch(){
+    this.hideSearchTable=false;
+  }
+  
+  onImport(){
+    this.businessSearchService.importData(this.allSearchData).subscribe((res:any)=>{
+      if(res['success']){
+        this.toastrManager['successToastr'](
+          'Successfully',
+          'Data Imported',
+          {
+            enableHTML: true,
+            showCloseButton: true
+          }
+        );
+      }else{
+        this.toastrManager['errorToastr'](
+          '',
+          'Unable to Import the data',
+          // res.error.name,
+          {
+            enableHTML: true,
+            showCloseButton: true
+          }
+        );
+      }
+    })
   }
 }

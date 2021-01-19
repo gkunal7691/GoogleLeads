@@ -22,7 +22,8 @@ db.Sequelize = Sequelize;
 
 /* CORE */
 db.User = require('./core/user')(sequelize, Sequelize);
-db.BusinessSearch = require('./business/business-search')(sequelize, Sequelize);
+db.Businesses = require('./business/businesses')(sequelize, Sequelize);
+db.Apikay = require('./business/apikey')(sequelize, Sequelize);
 
 /* MAPPING */
 
