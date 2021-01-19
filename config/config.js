@@ -24,12 +24,12 @@ config.production = {
     },
 };
 
-config.production = {
+config.development = {
     db: {
-        username: "gauranrc_tas",
-        password: "*9iRa$&B#;9s",
-        database: "gauranrc_taskandearn",
-        host: "162.215.241.152",
+        username: "yqwc4sm8prwko5li",
+        password: "rfmvb610rk8fznvn",
+        database: "buifxmkuh8q3ru97",
+        host: "hwr4wkxs079mtb19.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
         dialect: "mysql",
         migrationStorage: "json",
         define: {

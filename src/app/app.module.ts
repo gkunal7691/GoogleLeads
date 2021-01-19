@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ng6-toastr-notifications';
 
 import { AppRoutingModule } from './app-routing.module';
+
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { AppComponent } from './app.component';
 import { CacheService } from './services/cache.service';
 import { AuthLoadService } from './services/auth.service';
@@ -16,6 +18,13 @@ import { HomePageComponent } from './component/home-page/home-page.component';
 import { LayoutModule } from '../app/layout/layout.module';
 import { SettingComponent } from './component/setting/setting/setting.component';
 import { BusinessesComponent } from './component/businesses/businesses/businesses.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 
 export function usersProviderFactory(provider: AuthLoadService) {
@@ -40,13 +49,22 @@ export function usersProviderFactory(provider: AuthLoadService) {
     ReactiveFormsModule,
     HttpClientModule,
     CarouselModule,
+    MatPaginatorModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCardModule,
+    MatTableModule,
+    MatCheckboxModule,
     LayoutModule,
+    MatButtonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot()
   ],
   providers: [
     CacheService,
     AuthLoadService,
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
     { provide: APP_INITIALIZER, useFactory: usersProviderFactory, deps: [AuthLoadService], multi: true }
 
   ],
