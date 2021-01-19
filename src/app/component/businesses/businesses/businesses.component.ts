@@ -52,6 +52,10 @@ export class BusinessesComponent implements OnInit {
 
   search(searchValue: string) {
     this.dataSource.filter = searchValue.trim().toLowerCase();
+    this.dataSource.filterPredicate = (searchValue: any, filter) => {
+      const dataStr = JSON.stringify(searchValue).toLowerCase();
+      return dataStr.indexOf(filter) != -1;
+    }
   }
 
   getPageSizeOptions(): number[] {

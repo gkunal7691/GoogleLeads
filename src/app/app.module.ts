@@ -24,6 +24,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatInputModule } from '@angular/material/input';
+import { MatSortModule } from '@angular/material/sort';
+import {MatIconModule} from '@angular/material/icon'
 
 
 
@@ -50,6 +53,9 @@ export function usersProviderFactory(provider: AuthLoadService) {
     HttpClientModule,
     CarouselModule,
     MatPaginatorModule,
+    MatInputModule,
+    MatIconModule,
+    MatSortModule,
     MatButtonModule,
     MatFormFieldModule,
     MatSelectModule,
