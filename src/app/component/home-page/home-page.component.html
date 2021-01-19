@@ -28,8 +28,10 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <div class="form-field px-1 py-3">
-                                    <input type="text" name="radius" class="form-control" placeholder="Radius in KM"
+                                    <input type="number" name="radius" class="form-control" [min]="0.01" [max]="50" [step]="0.01" placeholder="Radius in KM"
                                         [formControl]="searchBusinessForm.controls['radius']">
+                                        <small class="text-danger" *ngIf="searchBusinessForm.get('radius').errors?.min ">Radius should be greater then 0.01 Kilometer.</small>
+                                        <small class="text-danger" *ngIf="searchBusinessForm.get('radius').errors?.max ">Radius should be less then 50 Kilometer.</small>
                                 </div>
                             </div>
                         </div>

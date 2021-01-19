@@ -27,7 +27,7 @@ export class HomePageComponent implements OnInit {
   onBusinessSearch() {
     this.searchBusinessForm = this.fb.group({
       keyword: ['', [Validators.required]],
-      radius: ['10', [Validators.required]],
+      radius: ['2', [Validators.required, Validators.max(50), Validators.min(0.01)]],
     });
   }
 
