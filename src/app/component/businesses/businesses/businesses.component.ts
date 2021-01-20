@@ -15,8 +15,7 @@ export class BusinessesComponent implements OnInit {
   allBusinesses: any;
   websites: any;
   sendingDataForStatus: any;
-  isWebsite: boolean = true
-  // sendBusinessIds:number;  
+  isWebsite: boolean = true 
   displayedColumns: string[] = ["businessName", "phone", "website", "address", "status"];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
