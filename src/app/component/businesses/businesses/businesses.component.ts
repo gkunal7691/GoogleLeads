@@ -29,7 +29,7 @@ export class BusinessesComponent implements OnInit {
   }
 
   statusChange() {
-    var sendStatusData = this.allBusinesses.map((businessIds)=>{ return businessIds.businessId});
+    var sendStatusData = this.allBusinesses.map((businessIds) => { return businessIds.businessId });
     console.log(sendStatusData)
     this.businessSearchService.updateStatus(sendStatusData).subscribe((res: any) => {
       console.log(res.data)

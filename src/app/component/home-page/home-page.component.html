@@ -6,7 +6,7 @@
             <div class="search-form container py-5" role="tabpanel" aria-labelledby="v-pills-performance-tab">
                 <form action="#" class="business-search">
                     <div class="row">
-                        <!-- Input Field-->
+
                         <div class="col-md-12">
                             <div class="form-group">
                                 <div class="form-field px-1 py-3">
@@ -18,9 +18,11 @@
                         </div>
 
                         <div class="col-md-6">
-                            <div class="form-group">
+                            <div class="searchbox form-group">
                                 <div class="form-field px-1 py-3">
-                                    <input type="text" name="location" class="form-control" placeholder="Location">
+                                    <input placeholder="Start typing your address here..." type="text" id="place"
+                                        class="form-control input-field" (change)="onAddressSearch()" #search
+                                        autocomplete="off" autocapitalize="off" spellcheck="off">
                                 </div>
                             </div>
                         </div>
@@ -40,6 +42,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <!-- Button -->
                         <div class="col-md-3">
                             <div class="form-group">
@@ -53,6 +56,8 @@
                     </div>
                 </form>
             </div>
+
+            <!-- Search Table -->
             <div class="container">
                 <div class="justify-content-between">
                     <h1 class="text-primary">SEARCH LIST</h1>

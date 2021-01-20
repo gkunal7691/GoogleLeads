@@ -28,6 +28,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon'
+import { AgmCoreModule } from '@agm/core';
 
 
 
@@ -45,6 +46,10 @@ export function usersProviderFactory(provider: AuthLoadService) {
   ],
 
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAhhL0iW8nLYyCPsAHGv2Wj9CIKOx9TiDk',
+      libraries: ['places']
+    }),
     CommonModule,
     RouterModule,
     AppRoutingModule,

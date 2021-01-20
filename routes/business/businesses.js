@@ -54,11 +54,13 @@ router.post('/search', async (req, res, next) => {
         { where: { apikeyId: 1 } },
         { attributes: ['apikey'] }
     ).then((apikey) => {
+        var lat = req.body.lat;
+        var lng = req.body.lng;
         var keyword = req.body.keyword;
         var radius = req.body.radius * 1000;
         var option = {
             method: 'GET',
-            url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=12.9729391,77.6294794&radius=' + radius + '&keyword=' + keyword + '&key=' + apikey.apikey,
+            url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + lat + ',' + lng + '&radius=' + radius + '&keyword=' + keyword + '&key=' + apikey.apikey,
             json: true
         };
         request(option, function (error, response, body) {
