@@ -13,3 +13,18 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-table td, .mat-table th {
+    border: 1px solid #eee;
+    padding: 8px!important;
+}
+
+.mat-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #fafbfc;
+    color: #000;
+    font-weight: 700;
+    font-size: 14px;
+}

@@ -1,39 +1,3 @@
-<!-- <div class="pt-5 container">
-    <div class="d-flex justify-content-between pt-5">
-        <div class="justify-content-between">
-            <h1 class="table-heading-text">BUSINESSES</h1>
-        </div>
-        <div class="pt-3">
-            <mat-checkbox class="mat-card check-style" color="primary" title="Website Not Available"
-                    (change)="website($event.checked)">
-                    Website Not Available
-            </mat-checkbox>
-        </div>
-    </div>
-    <div class="pt-2">
-        <table class="table table-striped px-5">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">NAME</th>
-                    <th scope="col">PHONE</th>
-                    <th scope="col">WEBSITE</th>
-                    <th scope="col">ADDRESS</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let businesses of allBusinesses; index as i;">
-                    <th scope="row">{{i+1}}</th>
-                    <td>{{businesses.businessName}}</td>
-                    <td>{{businesses.phone}}</td>
-                    <td>{{businesses.website}}</td>
-                    <td>{{businesses.address}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div> -->
 <div class="container padding-top">
     <div class="justify-content-between">
         <h1>BUSINESSES LIST</h1>
@@ -48,11 +12,8 @@
             </div>
             <div class="col-4 offset-4">
                 <div class="d-flex justify-content-end">
-                    <!-- <button (click)="onExport()" class="mr-3 mt-2 export-btn" mat-mini-fab color="primary"
-                        title="Export the Data">
-                        <mat-icon> import_export</mat-icon>
-                    </button> -->
-                    <button mat-mini-fab color="primary" class="mr-3 mt-2" title="Export the Data" (click)="exporter.exportTable('csv')">
+                    <button mat-mini-fab color="primary" class="mr-3 mt-2" title="Export the Data"
+                        (click)="exporter.exportTable('csv');statusChange()">
                         <mat-icon> import_export</mat-icon>
                     </button>
                     <mat-checkbox class="mat-card check-style" color="primary" title="Website Not Available"
