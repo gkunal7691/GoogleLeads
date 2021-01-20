@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MapsAPILoader } from '@agm/core';
+import '@types/googlemaps';
 declare var google: any;
 
 @Component({
