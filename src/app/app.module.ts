@@ -9,6 +9,7 @@ import { ToastrModule } from 'ng6-toastr-notifications';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { MatTableExporterModule } from 'mat-table-exporter';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { AppComponent } from './app.component';
 import { CacheService } from './services/cache.service';
@@ -50,6 +51,7 @@ export function usersProviderFactory(provider: AuthLoadService) {
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    MatTableExporterModule,
     HttpClientModule,
     CarouselModule,
     MatPaginatorModule,

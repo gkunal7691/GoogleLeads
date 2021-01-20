@@ -17,20 +17,20 @@ export class HomePageComponent implements OnInit {
   searchBusinessForm: FormGroup;
   updateNewApi: FormGroup;
   hideSearchTable: boolean;
-  loader:boolean;
+  loader: boolean;
   displayedColumns: string[] = ["name", "vicinity"];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
 
-  constructor(private fb: FormBuilder, private businessSearchService : BusinessSearchService, private toastrManager: ToastrManager,
-    private apikey : ApiKeyService) { }
+  constructor(private fb: FormBuilder, private businessSearchService: BusinessSearchService, private toastrManager: ToastrManager,
+    private apikey: ApiKeyService) { }
 
   ngOnInit(): void {
     this.onBusinessSearch();
   }
-  
+
   onBusinessSearch() {
     this.searchBusinessForm = this.fb.group({
       keyword: ['', [Validators.required]],
@@ -38,47 +38,13 @@ export class HomePageComponent implements OnInit {
     });
   }
 
-  
-
-  // onSearchProCustomer() {
-  //   this.loader=true;
-  //   this.businessSearchService.searchingData(
-  //     this.searchBusinessForm.value
-  //   ).subscribe((res:any)=>{
-  //     this.allSearchData = res.data;
-  //     if(res['success']){
-  //       this.toastrManager['successToastr'](
-  //         '',
-  //         'Searched Data',
-  //         {
-  //           enableHTML: true,
-  //           showCloseButton: true
-  //         }
-  //       );
-  //       this.loader=false;
-  //       this.hideSearchTable=true;
-  //       console.log("success")
-  //     }else{
-  //       this.toastrManager['errorToastr'](
-  //         '',
-  //         'Unable to Find the data',
-  //         // res.error.name,
-  //         {
-  //           enableHTML: true,
-  //           showCloseButton: true
-  //         }
-  //       );
-  //     }
-  //   })  
-  // }
-
-  backToSearch(){
-    this.hideSearchTable=false;
+  backToSearch() {
+    this.hideSearchTable = false;
   }
-  
-  onImport(){
-    this.businessSearchService.importData(this.allSearchData).subscribe((res:any)=>{
-      if(res['success']){
+
+  onImport() {
+    this.businessSearchService.importData(this.allSearchData).subscribe((res: any) => {
+      if (res['success']) {
         this.toastrManager['successToastr'](
           'Successfully',
           'Data Imported',
@@ -87,10 +53,10 @@ export class HomePageComponent implements OnInit {
             showCloseButton: true
           }
         );
-      }else{
+      } else {
         this.toastrManager['errorToastr'](
           '',
-          'Unable to Import the data',
+          'Some Data allready Imported',
           // res.error.name,
           {
             enableHTML: true,
@@ -103,12 +69,12 @@ export class HomePageComponent implements OnInit {
 
   onSearchProCustomer() {
     this.businessSearchService.searchingData(
-      this.searchBusinessForm.value ).subscribe((res:any)=> {
-      this.allSearchData = res.data;
-      this.dataSource = new MatTableDataSource(this.allSearchData);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-    })
+      this.searchBusinessForm.value).subscribe((res: any) => {
+        this.allSearchData = res.data;
+        this.dataSource = new MatTableDataSource(this.allSearchData);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      })
   }
 
 

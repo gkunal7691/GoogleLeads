@@ -30,5 +30,9 @@ export class BusinessSearchService {
     return this.httpClient.get<object>(`${this.apiPath}/${this.businesses}/`)
   }
 
+  updateStatus(status) {
+    return this.httpClient.put<object>(`${this.apiPath}/${this.businesses}/`, status)
+  }
+
 }
 

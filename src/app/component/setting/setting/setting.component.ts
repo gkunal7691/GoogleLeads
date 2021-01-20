@@ -12,7 +12,7 @@ export class SettingComponent implements OnInit {
 
   updateNewApi: FormGroup;
   apikeyTest: string = 'EDIT';
-  
+
 
   constructor(private fb: FormBuilder, private apikey: ApiKeyService, private toastrManager: ToastrManager) { }
 
@@ -32,7 +32,7 @@ export class SettingComponent implements OnInit {
 
   apikeyUpdate() {
     this.apikey.newApiKey(this.updateNewApi.value).subscribe((api: any) => {
-      if(api['success']){
+      if (api['success']) {
         this.toastrManager['successToastr'](
           'Successfully',
           'API Key Update',
@@ -41,7 +41,7 @@ export class SettingComponent implements OnInit {
             showCloseButton: true
           }
         );
-      }else{
+      } else {
         this.toastrManager['errorToastr'](
           'API key',
           'Unable to update',

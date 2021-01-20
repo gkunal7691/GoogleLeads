@@ -12,32 +12,41 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class BusinessesComponent implements OnInit {
 
-  allBusinesses:any;
-  websites:any;
-  isWebsite:boolean=true;
-  displayedColumns: string[] = ["businessName", "phone", "website", "address"];
+  allBusinesses: any;
+  websites: any;
+  sendingDataForStatus: any;
+  isWebsite: boolean = true
+  // sendBusinessIds:number;  
+  displayedColumns: string[] = ["businessName", "phone", "website", "address", "status"];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private businessSearchService : BusinessSearchService) {  }
+  constructor(private businessSearchService: BusinessSearchService) { }
 
   ngOnInit(): void {
     this.allBusinessesData()
   }
 
-  website(clicked){
-    if(clicked){
-      this.allBusinesses = this.websites.filter((x)=>{
-        return x.website==null;
+  statusChange() {
+    var sendStatusData = this.allBusinesses.map((businessIds)=>{ return businessIds.businessId});
+    console.log(sendStatusData)
+    this.businessSearchService.updateStatus(sendStatusData).subscribe((res: any) => {
+      console.log(res.data)
+    })
+  }
+
+  website(clicked) {
+    if (clicked) {
+      this.allBusinesses = this.websites.filter((x) => {
+        return x.website == null;
       })
       this.dataSource = new MatTableDataSource(this.allBusinesses);
-    }else{
+    } else {
       this.allBusinesses = this.websites;
       this.dataSource = new MatTableDataSource(this.allBusinesses);
     }
   }
-
 
   allBusinessesData() {
     this.businessSearchService.getBusinessesData().subscribe((res: any) => {

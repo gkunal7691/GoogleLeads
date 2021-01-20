@@ -28,7 +28,8 @@ router.post('/', async (req, res, next) => {
                         phone: body.result.formatted_phone_number,
                         website: body.result.website,
                         placeId: body.result.place_id,
-                        address: body.result.formatted_address
+                        address: body.result.formatted_address,
+                        status: 'New'
                     }
                 ).then(() => {
                     if (count == eachImportData.length - 1) {
@@ -66,5 +67,15 @@ router.post('/search', async (req, res, next) => {
     })
 
 })
+
+router.put('/', async function (req, res, next) {
+    Businesses.update(
+        { status: 'Exported' },
+        {
+            where: { businessId: req.body, status: 'New' },
+        }).then((data) => {
+            res.json({ success: true, data: data });
+        })
+});
 
 module.exports = router;

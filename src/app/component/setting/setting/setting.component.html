@@ -1,27 +1,19 @@
 <div class="container setting">
-  <div class=" w-50">
-    <div>
-        <h4 class="table-heading-text"><b>Google API Key</b></h4>
-    </div>
-    <form action="#">
-        <div class="col-md">
-            <div class="form-group">
-                <div class="form-field">
-                    <input type="text" name="apiKey" class="form-control"
-                    [formControl]="updateNewApi.controls['apikey']" placeholder="API-KEY">
-                </div>
-            </div>
+    <div class=" w-50">
+        <div>
+            <h4 class="table-heading-text"><b>Google API Key</b></h4>
         </div>
-        <div class="button-position">
-            <div class="col-md-3">
-                <div class="form-group p-1">
-                    <div>
-                        <button type="submit" class="form-control btn btn-primary px-4"
+        <form action="#">
+            <mat-form-field class="w-100">
+                <mat-label>API Key</mat-label>
+                <input matInput [formControl]="updateNewApi.controls['apikey']" placeholder="API-KEY">
+            </mat-form-field>
+            <div class="button-position">
+                <div>
+                    <button mat-raised-button color="primary" class="p-2 px-5"
                         (click)="submitApikey()">{{apikeyTest}}</button>
-                    </div>
                 </div>
             </div>
-        </div>
-    </form>
-  </div>    
+        </form>
+    </div>
 </div>

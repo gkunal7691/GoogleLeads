@@ -22,11 +22,15 @@ module.exports = (sequelize, DataTypes) => {
         placeId: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique:true
+            unique: true
         },
         address: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        status: {
+            type: DataTypes.ENUM('Exported', 'New', 'Not interested', 'Interested', "Call me later", "Not Reachable"),
+            allowNull: false
         }
     }, {
         tableName: 'businesses',
