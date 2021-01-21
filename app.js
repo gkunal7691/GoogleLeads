@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 
-app.use(express.static('dist/taskandearn'));
+app.use(express.static('dist/googleleads'));
 app.use(cookieParser());
 
 //Enabling CORS
