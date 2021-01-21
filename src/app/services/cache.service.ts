@@ -8,16 +8,16 @@ export class CacheService {
   constructor() { }
 
   setCache(name, val) {
-    localStorage.setItem('taskandearn-' + name, JSON.stringify(val));
+    localStorage.setItem('googleleads-' + name, JSON.stringify(val));
   }
 
   getCache(name) {
-    const cache = localStorage.getItem('taskandearn-' + name);
+    const cache = localStorage.getItem('googleleads-' + name);
     return cache ? JSON.parse(cache) : 'null';
   }
 
   removeCache(name) {
-    localStorage.removeItem('taskandearn-' + name);
+    localStorage.removeItem('googleleads-' + name);
   }
 
   setUserDetails(val) {
